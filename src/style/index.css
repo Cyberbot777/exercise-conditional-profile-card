@@ -1,32 +1,75 @@
-.filters {
-  background: white;
-  width: 100%;
+:root {
+  --bg: #ffffff;
+  --card-bg: #ffffff;
+  --text-light: #111111;
+  --text-muted: #444444;
+  --accent: #2cdfd3;
+  --accent-hover: #22c9be;
+  --input-bg: #f2f2f2;
 }
+
+body.dark-mode {
+  --bg: #121212;
+  --card-bg: #1e1e1e;
+  --text-light: #f0f0f0;
+  --text-muted: #888888;
+  --input-bg: #2a2a2a;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: "Open Sans", sans-serif;
+  color: var(--text-light);
+  transition: background 0.3s;
+}
+
+.filters {
+  background: var(--card-bg);
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #44444444;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
 .filters li {
   display: inline-block;
-  max-width: 80px;
+  width: 90px;
   padding: 3px;
+  list-style: none;
 }
+
 .filters li label {
   display: block;
-  font-size: 12px;
-  font-weight: 900;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 2px;
 }
-.filters li input {
-  width: 100%;
-}
+
+.filters li input,
 .filters li select {
   width: 100%;
+  padding: 5px;
+  background-color: var(--input-bg);
+  color: var(--text-light);
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 12px;
 }
+
 .widget {
   position: relative;
   width: 300px;
   height: 350px;
   margin: 50px auto;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
+
 .widget .cover {
   height: 160px;
   overflow: hidden;
@@ -35,8 +78,9 @@
   width: 100%;
   height: auto;
   min-height: 160px;
-  border-radius: 4px 4px 0 0;
+  border-radius: 12px 12px 0 0;
 }
+
 .widget .photo {
   position: absolute;
   top: 85px;
@@ -44,33 +88,40 @@
   width: 100px;
   height: 100px;
   margin: 0 0 0 -55px;
-  border: 5px solid #fff;
+  border: 5px solid var(--card-bg);
   border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-.widget h1,
-.widget h2,
-.widget h3 {
-  display: block;
-  margin: 10px 0;
-  text-align: center;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: #999;
-}
+
 .widget h1 {
-  margin: 60px 0 20px;
-  font-size: 26px;
-  color: #000;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-align: center;
 }
+
+.widget h2 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 5px 0;
+}
+
 .widget h3 {
   font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0;
 }
+
 .widget ul {
   position: absolute;
   top: 20px;
   padding: 0;
-  background: #2cdfd3;
+  background: var(--accent);
 }
 .widget ul.position-left {
   left: -26px;
@@ -87,11 +138,13 @@
   color: #fff;
   cursor: pointer;
   text-align: center;
-  border-bottom: 1px solid #2cd5ca;
-  transition: background-color 0.3s;
+  border-bottom: 1px solid var(--accent-hover);
+  transition: all 0.2s ease-in-out;
 }
 .widget ul li:hover > a {
-  background-color: #2cd5ca;
+  background-color: var(--accent-hover);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 .widget ul li:first-child > a {
   border-radius: 0 3px 0 0;
